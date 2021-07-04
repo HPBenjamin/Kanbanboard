@@ -1,0 +1,62 @@
+.add-card {
+    width: 700px;
+    height: 380px;
+    position: absolute;
+    left: 70px;
+    top: 120px;
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px;
+    display: flex;
+    
+}
+
+
+.card-left {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card-right {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+   
+p {
+    color: rgb(70, 82, 177);
+    font-weight: 500;
+    font-size: 18px;
+    margin-left: 35px;
+    margin-top: 10px;
+}
+
+.title {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+.c-title {
+    p {
+        color: rgb(70, 82, 177);
+    }
+    
+}
+
+.mat-form-field {
+    width: 280px;
+}
+    
+.btn-add-task {
+    padding-top: 20px
+}
+

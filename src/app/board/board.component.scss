@@ -1,0 +1,30 @@
+.hero {
+    width: 91vw;
+    height: 94vh;
+    display: flex;
+    margin-left: 52px;
+    margin-top: -30px;
+   
+}
+
+.wall {
+    display: flex;
+    flex-direction: column;
+    min-width: auto;
+    width: inherit;
+    margin-right: 16px;
+
+    p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: blue;
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.mat-card {
+    height: -webkit-fill-available;
+    background-color:  rgb(241, 242, 244);
+}
