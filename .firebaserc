@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "kanbanboard-c848a": {
+      "hosting": {
+        "Kanbanboard": [
+          "kanbanboard-c848a"
+        ]
+      }
+    }
+  }
+}

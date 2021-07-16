@@ -4,30 +4,30 @@
             <form class="example-form">
 
                 <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Title of project</mat-label>
-                    <textarea id="inputTitle" matInput placeholder="Ex. starting new project"></textarea>
+                    <mat-label><span>Title of project</span></mat-label>
+                    <input [(ngModel)]="ticket.projectTitle" [ngModelOptions]="{standalone: true}" matInput
+                        placeholder="">
                 </mat-form-field>
             </form>
-
         </div>
-        <div class="category">
-            <mat-card style="width: 250px; margin: 30px;"><button mat-button [matMenuTriggerFor]="menu">
-                    <p>CATEGORY</p>
-                </button>
-            </mat-card>
 
-            <mat-menu #menu="matMenu">
-                <button id="categoryInput" value="advertising" mat-menu-item>advertising</button>
-                <button id="categoryInput" value="inhouse" mat-menu-item>inhouse</button>
-                <button id="categoryInput" value="outsourcing" mat-menu-item>outsourcing</button>
-            </mat-menu>
+        <div class="category">
+            <form class="example-form">
+                <mat-form-field appearance="fill">
+                    <mat-label><span>Category</span></mat-label>
+                    <mat-select [(ngModel)]="ticket.category" [ngModelOptions]="{standalone: true}">
+                        <mat-option value="advertising">advertising</mat-option>
+                        <mat-option value="inhouse">inhouse</mat-option>
+                        <mat-option value="outsourcing">outsourcing</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
         </div>
 
         <form class="example-form">
-
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Leave a comment</mat-label>
-                <textarea id="commentInput" matInput placeholder="Customers value quality"></textarea>
+                <mat-label><span>Comment</span></mat-label>
+                <textarea [(ngModel)]="ticket.comment" [ngModelOptions]="{standalone: true}" matInput placeholder="Customers value quality"></textarea>
             </mat-form-field>
         </form>
 
@@ -35,34 +35,34 @@
     </div>
     <div class="card-right">
 
-        <mat-form-field appearance="fill">
-            <mat-label>Enter a date range</mat-label>
-            <mat-date-range-input [rangePicker]="picker">
-                <input id="startDateInput" matStartDate placeholder="Start date">
-                <input id="endDateInput" matEndDate placeholder="End date">
-            </mat-date-range-input>
+        <mat-form-field class="date-range" appearance="fill">
+            <mat-label><span>Choose a end-date</span></mat-label>
+            <input [(ngModel)]="endDate" [ngModelOptions]="{standalone: true}" matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-date-range-picker #picker></mat-date-range-picker>
+            <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
 
-        <div class="category urgency">
-            <mat-card style="width: 250px; margin: 30px;"><button mat-button [matMenuTriggerFor]="menue">
-                    <p>URGENCY</p>
-                </button>
-            
-
-            <mat-menu #menue="matMenu">
-                <button id="urgencyInput" value="Low" mat-menu-item>Low</button>
-                <button id="urgencyInput" value="Middle" mat-menu-item>Middle</button>
-                <button id="urgencyInput" value="High" mat-menu-item>High</button>
-            </mat-menu>
-        </mat-card>
+        <div class="urgency">
+            <form class="example-form">
+                <mat-form-field appearance="fill">
+                    <mat-label><span>Urgency</span></mat-label>
+                    <mat-select [(ngModel)]="ticket.urgency" [ngModelOptions]="{standalone: true}">
+                        <mat-option value="low">low</mat-option>
+                        <mat-option value="middle">middle</mat-option>
+                        <mat-option value="high">high</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
         </div>
 
-        <div class="btn-add-task">
-            <button (click)="addNewTicket" mat-raised-button color="primary">ADD TASK</button>
+        <div class="action">
+            <button (click)="dialogRef.close()" class="cancel" mat-stroked-button>Cancel</button>
+            <button (click)="addNewTicket()" class="save" mat-stroked-button color="primary">Save</button>
+
         </div>
+
     </div>
 
+    <mat-spinner *ngIf="loading"></mat-spinner>
 
 </div>

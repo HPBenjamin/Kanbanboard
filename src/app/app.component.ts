@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Kanbanboard';
+
+  constructor(public dialog: MatDialog) { }
+
+  
+
+  openDialog() {
+    this.dialog.open(AddTaskComponent);
+  }
+
+
 }
+

@@ -1,9 +1,28 @@
 <div class="hero">
-    
-    <div class="wall"><p>TO DO</p><mat-card></mat-card></div>
-    <div class="wall"><p>IN PROGRESS</p><mat-card></mat-card></div>
-    <div class="wall"><p>TESTING</p><mat-card></mat-card></div>
-    <div class="wall"><p>DONE</p><mat-card></mat-card></div>
+
+    <div class="wall">
+        <p>TO DO</p>
+        <mat-card class="column" >
+            <mat-card class="card-details" *ngFor="let ticket of allTickets"> <h3>{{ ticket.projectTitle }}</h3>
+                <span>{{ ticket.endDate }}</span>
+            
+            </mat-card>
+        </mat-card>
+    </div>
+    <div class="wall">
+        <p>IN PROGRESS</p>
+        <mat-card class="column"></mat-card>
+    </div>
+    <div class="wall">
+        <p>TESTING</p>
+        <mat-card class="column"></mat-card>
+    </div>
+    <div class="wall">
+        <p>DONE</p>
+        <mat-card class="column"></mat-card>
+
+
+    </div>
 
 
 </div>

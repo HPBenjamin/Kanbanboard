@@ -1,0 +1,83 @@
+.side-nav-content {
+    height: 100vh;
+    width: 100%;
+}
+
+.sidenav {
+    width: 250px;
+}
+
+.header-icon {
+    transform: scale(1.3);
+    position: absolute;
+    left: 24px;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.5);
+        transition: 125ms ease-in-out;
+    }
+}
+
+.header {
+    width: 100%;
+}
+
+.header-text {
+    margin-left: 80px;
+}
+
+.button {
+    position: absolute;
+    top: 12px;
+    transform: scale(1.5);
+    margin-left: 8px;
+}
+
+.logo {
+    height: 63px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+
+    img {
+        margin-left: 14px;
+        margin-top: 6px;
+        height: 50px;
+        width: auto;
+    }
+}
+
+.menu-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding-left: 16px;
+        padding-right: 16px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        mat-icon {
+            margin-right: 16px;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            transition: 125ms ease-in-out;
+        }
+    }
+}
+
+.router-container {
+    padding-top: 24px;
+    padding-left: 32px;
+    padding-right: 16px;
+}
+
+.btn-add-task {
+    position: absolute;
+    bottom: 50px;
+    right: 80px;
+}

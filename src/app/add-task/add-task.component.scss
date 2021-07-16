@@ -1,6 +1,6 @@
 .add-card {
     width: 700px;
-    height: 380px;
+    height: 300px;
     position: absolute;
     left: 70px;
     top: 120px;
@@ -17,6 +17,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 300px;
+    margin-left: 48px;
+    margin-right: 48px;
 
 }
 
@@ -26,6 +29,28 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 300px;
+
+    .date-range {
+        margin-top: -13px;
+    }
+
+    .action {
+        padding-top: 18px;
+
+        .save {
+
+            &:hover {
+                transform: scale(1.1);
+                transition: 125ms ease-in-out;
+            }
+        }
+    }
+
+    .cancel {
+        margin-right: 40px;
+        color: gray;
+    }
 }
    
 p {
@@ -60,3 +85,12 @@ p {
     padding-top: 20px
 }
 
+span {
+    color: rgb(70, 82, 177);
+}
+
+mat-spinner {
+    position: absolute;
+    left: 300px;
+    top: 97px;
+}

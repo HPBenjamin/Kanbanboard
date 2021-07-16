@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Ticket } from 'src/models/ticket.class';
 
 @Component({
   selector: 'app-board',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-
-  constructor() { }
+  ticket = new Ticket();
+  allTickets = [];
+  constructor(public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.firestore
+      .collection('tickets')
+      .valueChanges()
+      .subscribe((changes: any) => {
+        console.log('Received changes from Firestore!!!!', changes);
+        this.allTickets = changes;
+        this.ticket.endDate.toString();
+      });
   }
 
 }

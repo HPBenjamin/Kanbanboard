@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,20 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
+
+
+
 
 @NgModule({
   declarations: [
@@ -24,10 +38,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     BoardComponent,
     MenuComponent,
     BacklogComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    
+    
+    
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
@@ -39,7 +57,20 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatGridListModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule,
+    AngularFirestoreModule,
+    MatProgressSpinnerModule,
+    MatTableModule
+    
+    
+    
+   
+   
   ],
   providers: [
     MatDatepickerModule,

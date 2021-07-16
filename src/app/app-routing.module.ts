@@ -7,7 +7,7 @@ import { BoardComponent } from './board/board.component';
 const routes: Routes = [
   { path: '', component: BoardComponent },
   { path: 'backlog', component: BacklogComponent },
-  { path: 'add-task', component: AddTaskComponent },
+  { path: 'add-task', component: AddTaskComponent }
 ];
 
 @NgModule({

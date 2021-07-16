@@ -1,0 +1,47 @@
+mat-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding-left: 18px;
+    padding-right: 18px;
+
+    th {
+        color: rgba(0, 0, 0, 0.4);
+        font-weight: 500;
+        text-align: start;
+
+        &:first-child {
+            padding-left: 16px;
+        }
+    }
+
+    tr {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+
+        &:first-child {
+            cursor: unset;
+        }
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        td {
+            height: 60px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+                transition: 150ms ease-in-out;
+            }
+
+            &:first-child {
+                padding-left: 16px;
+            }
+        }
+    }
+}

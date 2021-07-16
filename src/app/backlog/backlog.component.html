@@ -1,1 +1,24 @@
-<h1>Backlog works!</h1>
+<mat-card>
+    <table class="ticket-table">
+        <tr>
+            <th>Projecttitel</th>
+            <th>endDate</th>
+            <th>Name</th>
+            <th>category</th>
+            <th>urgency</th>
+        </tr>
+        <tr *ngFor="let ticket of allTickets">
+            <td matTooltip="click to edit project title">{{ ticket.projectTitle }}</td>
+            <td matTooltip="click to edit end date"> {{ ticket.endDate}} </td>
+            <td matTooltip="click to edit the name"> {{ ticket.firstName}} {{ ticket.lastName }}</td>
+            <td matTooltip="click to edit category"> {{ ticket.category}} </td>
+            <td matTooltip="click to edit urgency"> {{ ticket.urgency}} </td>
+        </tr>
+        
+
+
+
+
+
+    </table>
+</mat-card>
