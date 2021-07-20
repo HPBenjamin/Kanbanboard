@@ -21,13 +21,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
+import { EditTitleComponent } from './edit-title/edit-title.component';
+import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -39,6 +42,8 @@ import { MatTableModule } from '@angular/material/table';
     MenuComponent,
     BacklogComponent,
     AddTaskComponent,
+    EditTitleComponent,
+    
     
     
     
@@ -65,7 +70,10 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     AngularFirestoreModule,
     MatProgressSpinnerModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule,
+    
+    
     
     
     

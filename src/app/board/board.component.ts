@@ -10,6 +10,8 @@ import { Ticket } from 'src/models/ticket.class';
 export class BoardComponent implements OnInit {
   ticket = new Ticket();
   allTickets = [];
+  textDate = [];
+  // dateText = [];
   constructor(public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -19,8 +21,9 @@ export class BoardComponent implements OnInit {
       .subscribe((changes: any) => {
         console.log('Received changes from Firestore!!!!', changes);
         this.allTickets = changes;
-        this.ticket.endDate.toString();
       });
   }
+
+
 
 }

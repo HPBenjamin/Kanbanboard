@@ -8,7 +8,7 @@
             <th>urgency</th>
         </tr>
         <tr *ngFor="let ticket of allTickets">
-            <td matTooltip="click to edit project title">{{ ticket.projectTitle }}</td>
+            <td [routerLink]="['/backlog/', ticket.customIdName]" matTooltip="click to edit project title">{{ ticket.projectTitle }}</td>
             <td matTooltip="click to edit end date"> {{ ticket.endDate}} </td>
             <td matTooltip="click to edit the name"> {{ ticket.firstName}} {{ ticket.lastName }}</td>
             <td matTooltip="click to edit category"> {{ ticket.category}} </td>

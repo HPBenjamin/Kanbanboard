@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -13,17 +14,18 @@ export class BacklogComponent implements OnInit {
   
   allTickets = [];
 
-  constructor(public firestore: AngularFirestore) { }
+  constructor(public firestore: AngularFirestore, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.firestore
       .collection('tickets')
-      .valueChanges()
+      .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         console.log('Backlog-changes!!!!', changes);
         this.allTickets = changes;
       });
 
   }
+
 
 }

@@ -21,7 +21,8 @@ export class AddTaskComponent implements OnInit {
     this.loading = true;
 
     this.ticket.endDate = this.endDate.getTime();
-    this.ticket.endDate.toString();
+    this.endDate.toLocaleDateString();
+    console.log('neues Datumsformat::::::', this.endDate);
    
     this.firestore
       .collection('tickets')
@@ -31,7 +32,7 @@ export class AddTaskComponent implements OnInit {
     setTimeout(() => {
       this.loading = false;
       this.dialogRef.close();
-    }, 1000);
+    }, 500);
 
   }
 
