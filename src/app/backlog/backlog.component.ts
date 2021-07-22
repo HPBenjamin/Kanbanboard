@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
+import { EditTitleComponent } from '../edit-title/edit-title.component';
+import { Ticket } from 'src/models/ticket.class';
 
 
 
@@ -11,8 +13,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./backlog.component.scss']
 })
 export class BacklogComponent implements OnInit {
-  
+  idField = '';
   allTickets = [];
+  ticketId = '';
+  ticket: Ticket = new Ticket();
 
   constructor(public firestore: AngularFirestore, public dialog: MatDialog) { }
 
@@ -27,5 +31,11 @@ export class BacklogComponent implements OnInit {
 
   }
 
+  openDialogEditTitle() {
+    const dialog = this.dialog.open(EditTitleComponent);
+    dialog.componentInstance.ticket = new Ticket(this.ticket.toJSON());
+    dialog.componentInstance.ticketId = this.ticketId;
+  }
 
 }
+

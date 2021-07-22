@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Ticket } from 'src/models/ticket.class';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-title',
@@ -10,25 +10,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditTitleComponent implements OnInit {
 
-ticket: Ticket;
-tickedId:string;
+  ticket: Ticket = new Ticket();
+  ticketId: string;
 
-allTickets = [];
+  allTickets = [];
+  route: any;
 
-  constructor(private route:ActivatedRoute, public firestore: AngularFirestore) { }
+  constructor(public dialogRef: MatDialogRef<EditTitleComponent>, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    this.firestore
-    .collection('tickets')
-    .valueChanges()
-    .subscribe((changes: any) => {
-      console.log('Received changes from Firestore!!!!', changes);
-      this.allTickets = changes;
-    });
+   
+
   }
 
-  saveTicket() {
-    
+  saveNewTicket() {
+    this.firestore
+    .collection('tickets')
+    .doc(this.ticketId)
+    .update(this.ticket.toJSON())
+    .then(() => {
+      this.dialogRef.close();
+    });
+
   }
-  
 }
