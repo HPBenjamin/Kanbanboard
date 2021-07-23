@@ -7,6 +7,7 @@ export class Ticket {
     comment: string;
     endDate: number;
     urgency: string;
+  customIdName: string;
 
 
     constructor(obj?: any) {

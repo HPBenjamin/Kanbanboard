@@ -4,10 +4,10 @@
 
 <mat-form-field appearance="fill">
   <mat-label>{{ ticket.projectTitle }}</mat-label>
-  <input matInput>
+  <input [(ngModel)]="ticket.projectTitle" matInput>
 </mat-form-field>
 
-    <div class="action">
+    <div class="edit-action">
         <button (click)="dialogRef.close()" mat-stroked-button>Cancel</button>
         <button (click)="saveNewTicket()" class="save" mat-stroked-button color="primary">Save</button>
 

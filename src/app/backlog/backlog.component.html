@@ -8,17 +8,11 @@
             <th>urgency</th>
         </tr>
         <tr *ngFor="let ticket of allTickets">
-            <td (click)="openDialogEditTitle()"  matTooltip="click to edit project title">{{ ticket.projectTitle }}</td>
-            <td matTooltip="click to edit end date"> {{ ticket.endDate}} </td>
+            <td (click)="openDialogEditTitle(ticket)"  matTooltip="click to edit project title">{{ ticket.projectTitle }}</td>
+            <td (click)="openDialogEditEndDate(ticket)" matTooltip="click to edit end date"> {{ convertMillToDate(ticket.endDate) }} </td>
             <td matTooltip="click to edit the name"> {{ ticket.firstName}} {{ ticket.lastName }}</td>
-            <td matTooltip="click to edit category"> {{ ticket.category}} </td>
-            <td matTooltip="click to edit urgency"> {{ ticket.urgency}} </td>
+            <td (click)="openDialogEditCategory(ticket)" matTooltip="click to edit the category"> {{ ticket.category}} </td>
+            <td (click)="openDialogEditUrgency(ticket)" matTooltip="click to edit urgency"> {{ ticket.urgency}} </td>
         </tr>
-        
-
-
-
-
-
     </table>
 </mat-card>

@@ -3,20 +3,17 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-edit-title',
-  templateUrl: './edit-title.component.html',
-  styleUrls: ['./edit-title.component.scss']
+  selector: 'app-edit-urgency',
+  templateUrl: './edit-urgency.component.html',
+  styleUrls: ['./edit-urgency.component.scss']
 })
-export class EditTitleComponent implements OnInit {
+export class EditUrgencyComponent implements OnInit {
 
-  ticket: any;
-  route: any;
+  ticket:any;
 
-  constructor(public dialogRef: MatDialogRef<EditTitleComponent>, public firestore: AngularFirestore) { }
+  constructor(public dialogRef: MatDialogRef<EditUrgencyComponent>, public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-   
-
   }
 
   saveNewTicket() {
@@ -28,4 +25,6 @@ export class EditTitleComponent implements OnInit {
       this.dialogRef.close();
     });
   }
+
+
 }

@@ -30,6 +30,9 @@ import { MatTableModule } from '@angular/material/table';
 import { EditTitleComponent } from './edit-title/edit-title.component';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditEndDateComponent } from './edit-end-date/edit-end-date.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { EditUrgencyComponent } from './edit-urgency/edit-urgency.component';
 
 
 
@@ -43,6 +46,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     BacklogComponent,
     AddTaskComponent,
     EditTitleComponent,
+    EditEndDateComponent,
+    EditCategoryComponent,
+    EditUrgencyComponent,
     
     
     

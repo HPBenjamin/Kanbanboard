@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill">
+    <mat-label><span>Category</span></mat-label>
+    <mat-select [(ngModel)]="ticket.category" [ngModelOptions]="{standalone: true}">
+        <mat-option value="advertising">advertising</mat-option>
+        <mat-option value="inhouse">inhouse</mat-option>
+        <mat-option value="outsourcing">outsourcing</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<div class="edit-action">
+    <button (click)="dialogRef.close()" mat-stroked-button>Cancel</button>
+    <button (click)="saveNewTicket()" class="save" mat-stroked-button color="primary">Save</button>
+
+</div>

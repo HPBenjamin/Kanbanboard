@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Ticket } from 'src/models/ticket.class';
 
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -11,7 +12,7 @@ export class BoardComponent implements OnInit {
   ticket = new Ticket();
   allTickets = [];
   textDate = [];
-  // dateText = [];
+
   constructor(public firestore: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -24,6 +25,23 @@ export class BoardComponent implements OnInit {
       });
   }
 
+  convertMillToDate(mill) {
+    var date = new Date(mill);
+    return date.toLocaleDateString("de-DE", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      weekday: "short"
+    });
+  }
 
-
+  deleteTicket(ticket:string) {
+    this.firestore
+      .collection('tickets')
+      .doc(ticket)
+      .delete()
+  }
 }
+
+
+

@@ -2,10 +2,14 @@
 
     <div class="wall">
         <p>TO DO</p>
-        <mat-card class="column" >
-            <mat-card class="card-details" *ngFor="let ticket of allTickets"> <h3>{{ ticket.projectTitle }}</h3>
-                <span>{{ ticket.endDate  }}</span>
-            
+        <mat-card class="column">
+            <mat-card class="card-details" *ngFor="let ticket of allTickets">
+                <table>
+                    <mat-icon (click)="deleteTicket(ticket)" class="delete-ticket" aria-hidden="false" aria-label="Example home icon">delete_outline
+                    </mat-icon>
+                    <h3>{{ ticket.projectTitle }}</h3>
+                    <span>{{ convertMillToDate(ticket.endDate) }}</span>
+                </table>
             </mat-card>
         </mat-card>
     </div>
