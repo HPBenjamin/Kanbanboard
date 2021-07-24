@@ -4,12 +4,13 @@
         <p>TO DO</p>
         <mat-card class="column">
             <mat-card class="card-details" *ngFor="let ticket of allTickets">
-                <table>
-                    <mat-icon (click)="deleteTicket(ticket)" class="delete-ticket" aria-hidden="false" aria-label="Example home icon">delete_outline
+                <table draggable="true" class="draggable">
+                    <mat-icon (click)="deleteTicket(ticket.customIdName)" class="delete-ticket" aria-hidden="false" aria-label="Example home icon">delete_outline
                     </mat-icon>
                     <h3>{{ ticket.projectTitle }}</h3>
                     <span>{{ convertMillToDate(ticket.endDate) }}</span>
                 </table>
+        
             </mat-card>
         </mat-card>
     </div>

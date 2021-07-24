@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     this.firestore
       .collection('tickets')
-      .valueChanges()
+      .valueChanges({ idField: 'customIdName' })
       .subscribe((changes: any) => {
         console.log('Received changes from Firestore!!!!', changes);
         this.allTickets = changes;
@@ -35,11 +35,14 @@ export class BoardComponent implements OnInit {
     });
   }
 
-  deleteTicket(ticket:string) {
+  deleteTicket(ticketId:string) {
+    console.log('TicketId:::::', ticketId);
     this.firestore
       .collection('tickets')
-      .doc(ticket)
+      .doc(ticketId)
       .delete()
+      .then(response => { console.log(response) })
+      .catch( error => console.error(error));
   }
 }
 
