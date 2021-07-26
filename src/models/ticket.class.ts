@@ -7,7 +7,9 @@ export class Ticket {
     comment: string;
     endDate: number;
     urgency: string;
-  customIdName: string;
+    customIdName: string;
+    id: number;
+    status: string;
 
 
     constructor(obj?: any) {
@@ -19,6 +21,9 @@ export class Ticket {
         this.comment = obj ? obj.comment : '';
         this.endDate = obj ? obj.endDate : '';
         this.urgency = obj ? obj.urgency : '';
+        this.customIdName = obj ? obj.urgency : '';
+        this.id = obj ? obj.urgency : '';
+        this.status = obj ? obj.urgency : '';
     }
 
     public toJSON() {
@@ -30,7 +35,10 @@ export class Ticket {
             category: this.category,
             comment: this.comment,
             endDate: this.endDate,
-            urgency: this.urgency
+            urgency: this.urgency,
+            customIdName: this.customIdName,
+            id: this.id,
+            status: this.status 
         }
     }
 }

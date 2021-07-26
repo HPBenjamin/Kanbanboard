@@ -22,7 +22,7 @@
 }
 
 .column {
-    height: -webkit-fill-available;
+    min-height: 600px;
     background-color: rgb(241, 242, 244);
     padding-left: 0;
     padding-right: 0;

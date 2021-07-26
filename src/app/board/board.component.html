@@ -2,29 +2,82 @@
 
     <div class="wall">
         <p>TO DO</p>
-        <mat-card class="column">
-            <mat-card class="card-details" *ngFor="let ticket of allTickets">
-                <table draggable="true" class="draggable">
-                    <mat-icon (click)="deleteTicket(ticket.customIdName)" class="delete-ticket" aria-hidden="false" aria-label="Example home icon">delete_outline
+        <mat-card cdkDropList class="column" 
+            #todoList="cdkDropList" 
+            [cdkDropListData]="todos"
+            [cdkDropListConnectedTo]="[inProgressList, inTestingList]" 
+            
+            (cdkDropListDropped)="drop($event)">
+            <mat-card cdkDrag class="card-details" *ngFor="let todo of todos">
+                <table class="draggable">
+                    <mat-icon (click)="deleteTicket(todo.customIdName)" class="delete-ticket" aria-hidden="false"
+                        aria-label="Example home icon">delete_outline
                     </mat-icon>
-                    <h3>{{ ticket.projectTitle }}</h3>
-                    <span>{{ convertMillToDate(ticket.endDate) }}</span>
+                    <h3>{{ todo.projectTitle }}</h3>
+                    <span>{{ convertMillToDate(todo.endDate) }}</span>
                 </table>
-        
+
+            </mat-card>
+        </mat-card>
+    </div>
+
+    <div class="wall">
+        <p>IN PROGRESS</p>
+        <mat-card cdkDropList class="column" 
+            #inProgressList="cdkDropList" 
+            [cdkDropListData]="inProgresses"
+            [cdkDropListConnectedTo]="[todoList, inTestingList, doneList]" 
+            
+            (cdkDropListDropped)="drop($event)">
+            <mat-card cdkDrag class="card-details" *ngFor="let inProgress of inProgresses">
+                <table class="draggable">
+                    <mat-icon (click)="deleteTicket(inProgress.customIdName)" class="delete-ticket" aria-hidden="false"
+                        aria-label="Example home icon">delete_outline
+                    </mat-icon>
+                    <h3>{{ inProgress.projectTitle }}</h3>
+                    <span>{{ convertMillToDate(inProgress.endDate) }}</span>
+                </table>
             </mat-card>
         </mat-card>
     </div>
     <div class="wall">
-        <p>IN PROGRESS</p>
-        <mat-card class="column"></mat-card>
-    </div>
-    <div class="wall">
         <p>TESTING</p>
-        <mat-card class="column"></mat-card>
+        <mat-card cdkDropList class="column" 
+            #inTestingList="cdkDropList" 
+            [cdkDropListData]="testings"
+            [cdkDropListConnectedTo]="[inProgressList, todoList, doneList]" 
+            (cdkDropListDropped)="drop($event)">
+            <mat-card cdkDrag class="card-details" *ngFor="let testing of testings">
+                <table class="draggable">
+                    <mat-icon (click)="deleteTicket(testing.customIdName)" class="delete-ticket" aria-hidden="false"
+                        aria-label="Example home icon">delete_outline
+                    </mat-icon>
+                    <h3>{{ testing.projectTitle }}</h3>
+                    <span>{{ convertMillToDate(testing.endDate) }}</span>
+                </table>
+            </mat-card>
+
+
+        </mat-card>
     </div>
     <div class="wall">
         <p>DONE</p>
-        <mat-card class="column"></mat-card>
+        <mat-card cdkDropList class="column"
+            #doneList="cdkDropList" 
+            [cdkDropListData]="dones"
+            [cdkDropListConnectedTo]="[inProgressList, todoList, inTestingList]" 
+            (cdkDropListDropped)="drop($event)">
+            <mat-card cdkDrag class="card-details" *ngFor="let done of dones">
+                <table class="draggable">
+                    <mat-icon (click)="deleteTicket(done.customIdName)" class="delete-ticket" aria-hidden="false"
+                        aria-label="Example home icon">delete_outline
+                    </mat-icon>
+                    <h3>{{ done.projectTitle }}</h3>
+                    <span>{{ convertMillToDate(done.endDate) }}</span>
+                </table>
+            </mat-card>
+
+        </mat-card>
 
 
     </div>

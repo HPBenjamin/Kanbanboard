@@ -33,6 +33,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EditEndDateComponent } from './edit-end-date/edit-end-date.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditUrgencyComponent } from './edit-urgency/edit-urgency.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 
@@ -78,7 +79,7 @@ import { EditUrgencyComponent } from './edit-urgency/edit-urgency.component';
     MatProgressSpinnerModule,
     MatTableModule,
     RouterModule,
-    
+    DragDropModule
     
     
     
