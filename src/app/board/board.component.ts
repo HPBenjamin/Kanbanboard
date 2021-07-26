@@ -69,7 +69,7 @@ export class BoardComponent implements OnInit {
       const element = this.allTickets[i];
       if (element['status'] == '') {
         this.allTickets[i]['status'] = 'todo';
-      }
+      } 
     }
     this.getTodos();
     this.getInProgresses();
@@ -98,12 +98,7 @@ export class BoardComponent implements OnInit {
       .catch(error => console.error(error));
   }
 
-  saveNewTicket() {
-    this.firestore
-    .collection('tickets')
-    .doc(this.ticket.customIdName)
-    .set(this.ticket)
-  }
+  
 }
 
 
