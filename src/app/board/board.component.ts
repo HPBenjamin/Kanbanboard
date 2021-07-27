@@ -41,16 +41,50 @@ export class BoardComponent implements OnInit {
         event.previousIndex,
         event.currentIndex);
     }
+    this.saveTicket();
+  }
+
+  saveTicket() {
+    this.allTickets = [];
+    console.log('deletet alTickets====', this.allTickets);
+
+    for (let a = 0; a < this.todos.length; a++) {
+      const element = this.todos[a];
+      this.allTickets.push(element);
+    } 
+    for (let b = 0; b < this.inProgresses.length; b++) {
+      const element = this.inProgresses[b];
+      this.allTickets.push(element);
+      this.allTickets[b]['status'] = "inProgress";
+    }
+    for (let c = 0; c < this.testings.length; c++) {
+      const element = this.testings[c];
+      this.allTickets.push(element);
+      this.allTickets[c]['status'] = "testing";
+    }
+    for (let d = 0; d < this.dones.length; d++) {
+      const element = this.dones[d];
+      this.allTickets.push(element);
+      this.allTickets[d]['status'] = "done";
+    }
+
+
+    console.log('gepushtes allTickets====', this.allTickets);
   }
 
   getTodos() {
     this.todos = this.allTickets.filter(t => t['status'] == 'todo');
     console.log('todos =====', this.todos);
+    
   }
 
   getInProgresses() {
     this.inProgresses = this.allTickets.filter(t => t['status'] == 'inProgress');
     console.log('inProgresses ========', this.inProgresses);
+    for (let i = 0; i < this.inProgresses.length; i++) {
+      const element = this.inProgresses[i];
+      
+    }
   }
 
   getTestings() {
@@ -75,6 +109,7 @@ export class BoardComponent implements OnInit {
     this.getInProgresses();
     this.getTestings();
     this.getDones();
+    this.saveTicket();
   }
 
 

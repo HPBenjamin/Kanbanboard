@@ -5,7 +5,7 @@
         <mat-card cdkDropList class="column" 
             #todoList="cdkDropList" 
             [cdkDropListData]="todos"
-            [cdkDropListConnectedTo]="[inProgressList, inTestingList]" 
+            [cdkDropListConnectedTo]="[inProgressList, inTestingList, doneList]" 
             
             (cdkDropListDropped)="drop($event)">
             <mat-card cdkDrag class="card-details" *ngFor="let todo of todos">
