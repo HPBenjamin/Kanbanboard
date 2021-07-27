@@ -1,13 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+
+
+
 
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
+  
+  
 export class BoardComponent implements OnInit {
   ticket:any;
   allTickets = [];
@@ -32,7 +37,7 @@ export class BoardComponent implements OnInit {
       });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>, status) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -40,14 +45,23 @@ export class BoardComponent implements OnInit {
         event.container.data,
         event.previousIndex,
         event.currentIndex);
+        event.container.data[event.currentIndex]["status"] = status;
+        this.saveTicket(event.container.data[event.currentIndex]);
     }
-    this.saveTicket();
+    
   }
 
-  saveTicket() {
+  saveTicket(ticket) {
     this.allTickets = [];
     console.log('deletet alTickets====', this.allTickets);
-
+    this.firestore
+      .collection('tickets')
+      .doc(ticket["customIdName"])
+      .set(ticket)
+      .then(response => { console.log(response) })
+      .catch(error => console.error(error));
+  
+/*
     for (let a = 0; a < this.todos.length; a++) {
       const element = this.todos[a];
       this.allTickets.push(element);
@@ -67,7 +81,7 @@ export class BoardComponent implements OnInit {
       this.allTickets.push(element);
       this.allTickets[d]['status'] = "done";
     }
-
+*/
 
     console.log('gepushtes allTickets====', this.allTickets);
   }
@@ -109,7 +123,7 @@ export class BoardComponent implements OnInit {
     this.getInProgresses();
     this.getTestings();
     this.getDones();
-    this.saveTicket();
+   // this.saveTicket();
   }
 
 

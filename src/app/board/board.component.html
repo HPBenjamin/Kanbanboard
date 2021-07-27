@@ -7,7 +7,7 @@
             [cdkDropListData]="todos"
             [cdkDropListConnectedTo]="[inProgressList, inTestingList, doneList]" 
             
-            (cdkDropListDropped)="drop($event)">
+            (cdkDropListDropped)="drop($event, 'todo')">
             <mat-card cdkDrag class="card-details" *ngFor="let todo of todos">
                 <table class="draggable">
                     <mat-icon (click)="deleteTicket(todo.customIdName)" class="delete-ticket" aria-hidden="false"
@@ -28,7 +28,7 @@
             [cdkDropListData]="inProgresses"
             [cdkDropListConnectedTo]="[todoList, inTestingList, doneList]" 
             
-            (cdkDropListDropped)="drop($event)">
+            (cdkDropListDropped)="drop($event, 'inProgress')">
             <mat-card cdkDrag class="card-details" *ngFor="let inProgress of inProgresses">
                 <table class="draggable">
                     <mat-icon (click)="deleteTicket(inProgress.customIdName)" class="delete-ticket" aria-hidden="false"
@@ -46,7 +46,7 @@
             #inTestingList="cdkDropList" 
             [cdkDropListData]="testings"
             [cdkDropListConnectedTo]="[inProgressList, todoList, doneList]" 
-            (cdkDropListDropped)="drop($event)">
+            (cdkDropListDropped)="drop($event, 'testing')">
             <mat-card cdkDrag class="card-details" *ngFor="let testing of testings">
                 <table class="draggable">
                     <mat-icon (click)="deleteTicket(testing.customIdName)" class="delete-ticket" aria-hidden="false"
@@ -66,7 +66,7 @@
             #doneList="cdkDropList" 
             [cdkDropListData]="dones"
             [cdkDropListConnectedTo]="[inProgressList, todoList, inTestingList]" 
-            (cdkDropListDropped)="drop($event)">
+            (cdkDropListDropped)="drop($event, 'done')">
             <mat-card cdkDrag class="card-details" *ngFor="let done of dones">
                 <table class="draggable">
                     <mat-icon (click)="deleteTicket(done.customIdName)" class="delete-ticket" aria-hidden="false"
